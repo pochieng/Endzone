@@ -1,0 +1,24 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var home = Model.Content.Site();
+    var slider = Umbraco.Media(home.GetPropertyValue("slider").ToString()).Children();
+}
+
+
+<div class="main-slider flexslider cf">
+			<ul class="slides">
+			    @foreach(var img in slider)
+				{
+				<li class="@img.GetPropertyValue("classValue")">
+					<img src="@img.Url" alt="@img.Name" />
+					<div class="keyline"></div>
+					<div class="flex-caption">
+						<div class="main-caption">
+							<p class="flex-caption-header">@Html.Raw(img.GetPropertyValue("title"))</p>
+							<p>@img.GetPropertyValue("description")</p>
+						</div>
+					</div>
+				</li>
+				}
+			</ul>
+		</div>

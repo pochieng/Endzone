@@ -1,0 +1,49 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = null;
+}
+
+@* the fun starts here *@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Goring</title>
+	<meta name="description" content="" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<link rel="stylesheet" href="@Url.Content("~/css/jquery-ui.min.css")" />
+	<link rel="stylesheet" href="@Url.Content("~/css/flexslider.css")" />
+	<link rel="stylesheet" href="@Url.Content("~/css/goring.css")" />
+    @RenderSection("Header", required: false)
+
+</head>
+
+
+<body>
+
+
+	<div id="wrapper">
+
+        <!-- #header -->
+		@Html.Partial("~/views/partials/HeaderPartial.cshtml")
+
+		
+		@RenderBody()
+
+
+        <!-- #footer -->
+	    @Html.Partial("~/views/partials/FooterPartial.cshtml")
+        
+
+	</div><!-- /#wrapper -->
+
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="@Url.Content("~/scripts/jquery-ui.min.js")"></script>
+    <script src="@Url.Content("~/scripts/jquery.flexslider-min.js")"></script>
+    <script src="@Url.Content("~/scripts/main.js")"></script>
+
+</body>
+</html>

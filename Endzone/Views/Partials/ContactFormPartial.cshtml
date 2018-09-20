@@ -1,0 +1,125 @@
+﻿@model Endzone.MVC.Models.ContactModel
+@using Endzone.MVC.Models
+@{
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+
+    var terms = Endzone.MVC.Infrastructure.Helper.GetPropertyValueByIdAndAlias(1142,"bodyText");
+}
+
+@using (Html.BeginUmbracoForm<Endzone.MVC.Controller.ContactSurfaceController>("SendContact", null, new { id = "GuestForm" }))
+{
+        <fieldset>
+            <legend>General Information</legend>
+
+            <div class="gf-row cf">
+                <label>Resort:*</label>
+                <select name="Resort" required>
+                    <option value="">Select...</option>
+                    <option>Tring</option>
+                    <option>Forest Mere</option>
+                    <option>Henlow</option>
+                    <option>Springs</option>
+                </select>
+            </div>
+
+            <div class="gf-row cf">
+                <label>Reference Number:*</label>
+                <input type="text" name="ReferenceNum" required />
+                @Html.ValidationMessageFor(model => model.Name)
+                @Html.TextBoxFor(x => Model.Name, new { placeholder = "Your Name", @class = "required", maxlength = "24" })
+            </div>
+
+            <div class="gf-row cf">
+                @Html.LabelFor(x => x.Name)
+
+                @Html.TextBoxFor(x => Model.Name, new { @class = "required" })
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+
+
+            <div class="gf-row cf">
+                @Html.LabelFor(x => x.DateOfLastVisit)
+
+                @Html.TextBoxFor(x => Model.DateOfLastVisit, new { @class = "past-date" })
+            </div>
+
+            <div class="gf-row cf">
+                @Html.LabelFor(x => x.ArrivalDate)
+
+                @Html.TextBoxFor(x => Model.ArrivalDate, new { @class = "narrow date" })
+            </div>
+
+            <div class="gf-row cf">
+                @Html.LabelFor(x => x.EstTimeOfArrival)
+
+                @Html.TextBoxFor(x => Model.EstTimeOfArrival, new { @class = "narrow" })
+            </div>
+
+            <div class="gf-row cf">
+                @Html.LabelFor(x => x.DepartureDate)
+
+                @Html.TextBoxFor(x => Model.DepartureDate, new { @class = "narrow date" })
+            </div>
+
+            <div class="gf-row cf">
+                @Html.LabelFor(x => x.TelephoneNumber)
+
+                @Html.TextBoxFor(x => Model.TelephoneNumber, new { @class = "narrow" })
+            </div>
+
+            <div class="gf-row cf">
+                @Html.LabelFor(x => x.BestTimeToCall)
+
+                @Html.TextBoxFor(x => Model.BestTimeToCall, new { @class = "narrow" })
+            </div>
+
+            <div class="gf-row-space cf"></div>
+            <div class="gf-row-space cf"></div>
+
+            <div class="gf-row cf">
+                @Html.LabelFor(x => x.Email)
+
+                @Html.TextBoxFor(x => Model.Email, new { @class = "required" })
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+
+            <div class="gf-row cf">
+                @Html.LabelFor(x => x.Message)
+
+                @Html.TextAreaFor(x => Model.Message, new { @class = "required" })
+                @Html.ValidationMessageFor(model => model.Message)
+            </div>
+
+            <div class="gf-row cf checkbox">
+                <label>If you have already completed a Guest Request Form for this visit please tick here </label>
+                <input type="checkbox" name="AlreadyCompletedForm" value="yes" />
+            </div>
+
+            <div class="gf-row cf checkbox">
+                <label class="multi-line">If you are staying overnight with us would you like a:<br /><em>(Economy and standard rooms are twin only)</em></label>
+                <input type="radio" name="OvernightRoomType" value="Twin"><label class="gf-radio">Twin</label>
+                <input type="radio" name="OvernightRoomType" value="Double"><label class="gf-radio">Double</label>
+            </div>
+
+        </fieldset>
+ 
+        <fieldset>
+
+            <div class="gf-row cf">
+                <label>@ViewBag.Message</label>
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <div class="gf-row cf submit-button">
+                <input type="submit" name="submit" value="Submit Form"/>
+            </div>
+        </fieldset>
+
+
+        <div class="gf-terms">
+            <p> @Html.Raw(terms)</p>
+        </div>
+}

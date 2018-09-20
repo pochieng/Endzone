@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var home = Model.Content.Site();
+    var items = home.Children.Where(x => x.IsVisible());
+}
+
+<div id="primary-nav-container">
+	<ul id="primary-nav">
+		<li class="@Html.Raw(Model.Content.Id == home.Id ? "current" : null)"><a href="@home.Url">@home.Name</a></li>
+		@foreach (var item in items)
+        {
+		    <li class="@(item.IsAncestorOrSelf(Model.Content) ? "current" : null)">
+			    <a href="@item.Url">@item.Name</a>
+		    </li>
+		}
+	</ul>
+</div>

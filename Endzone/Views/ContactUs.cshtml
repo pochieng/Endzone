@@ -1,0 +1,18 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.ContactUs>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Layout.cshtml";
+}
+
+		<div class="main-slider flexslider cf">
+			<ul class="slides">
+
+			</ul>
+		</div>
+
+
+		<div class="main-content body one-column cf">
+
+            @Html.Partial("ContactFormPartial", new Endzone.MVC.Models.ContactModel())
+
+		</div>

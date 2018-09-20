@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Home>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Layout.cshtml";
+}
+
+<!-- #slider -->
+@Html.Partial("~/views/partials/MainSliderPartial.cshtml")
+
+<!-- #home-content -->
+@Html.Partial("~/views/partials/HomeContentPartial.cshtml")

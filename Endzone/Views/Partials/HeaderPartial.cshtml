@@ -1,0 +1,33 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    //logo property has been set to required
+    var home = Model.Content.Site();
+    var media = Umbraco.Media(home.GetPropertyValue("logo").ToString());
+}
+<div id="header">
+
+
+			<div id="logo">
+				<a href="@home.Url"><img src="@media.Url" alt="The Goring" /></a>
+			</div>
+
+
+			<div id="nav-container">
+
+				@Html.Partial("~/views/partials/NavigationPartial.cshtml")
+
+				<div id="check-avail">
+
+					<a href="#" id="check-avail-toggle">Book <span>a</span> stay</a>
+
+					<div id="check-avail-form">
+
+						@Html.Partial("~/views/partials/BookingPartial.cshtml")
+
+					</div>
+
+				</div><!-- /#check-avail -->
+
+			</div><!-- /#nav-container -->
+
+		</div>

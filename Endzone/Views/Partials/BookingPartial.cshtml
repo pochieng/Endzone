@@ -1,0 +1,23 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+<form action="https://gc.synxis.com/rez.aspx" method="get" target="_blank">
+							<input type="hidden" name="Hotel" value="15601" />
+							<input type="hidden" name="Chain" value="6386" />
+							<input type="hidden" name="locale" value="en-gb" />
+							<input type="hidden" name="start" value="availresults" />
+							<input type="hidden" name="adult" value="2" />
+
+							<input type="text" id="arrive" name="arrive" readonly="readonly" />
+							<input type="text" id="depart" name="depart" readonly="readonly" />
+
+							<div class="check-avail-button">
+								<input type="submit" id="check-avail-submit" value="Check Availability" />
+							</div>
+
+							<div class="check-avail-button">
+								<a href="#">Make an enquiry</a>
+							</div>
+
+							<p>Call our team: +44 (0) 20 7396 90005</p>
+
+						</form>

@@ -1,0 +1,195 @@
+/*
+ * jQuery FlexSlider v2.2.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ */
+
+
+/* Browser Resets
+*********************************/
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none;}
+
+/* FlexSlider Necessary Styles
+*********************************/
+.flexslider {margin: 0; padding: 0;}
+.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {width: 100%; display: block;}
+.flex-pauseplay span {text-transform: capitalize;}
+
+/* Clearfix for the .slides element */
+.slides:after {content: "\0020"; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+html[xmlns] .slides {display: block;}
+* html .slides {height: 1%;}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {display: block;}
+
+/* FlexSlider Default Theme
+*********************************/
+
+/* Direction Nav */
+.flex-direction-nav {*height: 0;}
+.flex-direction-nav a  { text-decoration:none; display: block; width: 51px; height: 86px; margin: -20px 0 0; position: absolute; top: 45%; z-index: 10; overflow: hidden; cursor: pointer; background: url('../images/flex-next.png') no-repeat; text-indent: -1234px; background-size: 51px 86px; }
+.flex-direction-nav .flex-prev { left: 20px; background-image: url('/media/1018/flex-prev.png'); }
+.flex-direction-nav .flex-next { right: 20px;  }
+
+.flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover { opacity: 1; }
+.flex-direction-nav .flex-disabled { display: none; }
+/*
+.flex-direction-nav a:before  { font-family: "flexslider-icon"; font-size: 40px; display: inline-block; content: '\f001'; }
+.flex-direction-nav a.flex-next:before  { content: '\f002'; }
+*/
+
+
+.flexslider,
+.slides li {
+	position: relative;
+}
+
+.keyline {
+	/*position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 10px;*/
+	
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	bottom: 10px;
+	left: 10px;
+	border: 1px solid #CFCECE;
+}
+
+/*.keyline-inner {
+	/*width: 100%;
+	height: 100%;
+	
+}*/
+
+.flex-caption {
+	position: absolute;
+	bottom: 25%;
+	color: #f3f3f3;
+	width: 100%;
+	text-align: center;
+}
+
+.main-caption {
+	width: 454px;
+	margin: 0 auto;
+	padding: 40px;
+	background: url('/media/1015/flex-caption-shadow.png') no-repeat center center;
+	background-image: none\0/; /* IE 8 hack */
+	background-size: 100% 100%;
+}
+
+.top-left .flex-caption {
+	top: 15%;
+	left: 10%;
+	width: 40%;
+}
+
+.top-right .flex-caption {
+	top: 15%;
+	right: 10%;
+	width: 40%;
+}
+
+.bottom-left .flex-caption {
+	bottom: 15%;
+	left: 10%;
+	width: 40%;
+}
+
+.bottom-right .flex-caption {
+	bottom: 15%;
+	right: 10%;
+	width: 40%;
+}
+
+.top-left .flex-caption .main-caption {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.top-right .flex-caption .main-caption {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.bottom-left .flex-caption .main-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.bottom-right .flex-caption .main-caption {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+
+
+.main-caption p {
+	text-transform: uppercase;
+	font-size: 15px;
+	line-height: 22px;
+	letter-spacing: 1px;
+}
+
+.main-caption p.flex-caption-header {
+	font-size: 30px;
+	display: inline-block;
+	padding: 0 10px 10px 10px;
+	margin: 0 0 10px 0;
+	border-bottom: 1px solid #f3f3f3;
+	letter-spacing: 3px;
+}
+
+.main-caption p.flex-caption-header em {
+	font-style: normal;
+	font-family: BickhamScriptW01-Regula;
+	text-transform: none;
+	font-size: 58px;
+	padding-right: 13px;
+	padding-left: 8px;
+	letter-spacing: 6px;
+}
+
+
+
+@media screen and (max-width: 1100px) {
+	
+	.top-left .flex-caption,
+	.top-right .flex-caption {
+		top: 5%;
+	}
+		
+	.bottom-left .flex-caption,
+	.bottom-right .flex-caption {
+		bottom: 5%;
+	}
+
+}
+
+
+
+
